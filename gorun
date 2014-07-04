@@ -1,0 +1,131 @@
+#!/usr/bin/osascript
+-- luismartingil 2013
+-- Applescript to launch an specific terminal configuration
+-- Dont unfocus with the mouse/keyboard while executing. the script.
+
+launch "iTerm"
+
+tell application "iTerm"
+  activate
+
+  -- terminate the first session of the first terminal
+
+  -- make a new terminal
+  set myterm to (make new terminal)
+  tell myterm
+
+    set number of columns to 140
+    set number of rows to 80
+
+    --set theMessages to {"red", "blue", "yellow"}
+    repeat with n from 1 to 3
+      set sessionList to {}
+
+      -- launch a default shell in a new tab in the same terminal
+      launch session n
+
+      tell i term application "System Events" to key code 36 using command down
+
+      delay 1
+
+      -- 30 == right bracket
+      -- 33 == left bracket
+
+      -- vertical split 2, 4 panes on left 1 on right
+      tell i term application "System Events" to keystroke "d" using command down
+      delay 0.1
+      tell i term application "System Events" to key code 30 using command down
+      delay 0.1
+      tell i term application "System Events" to keystroke "D" using command down
+      delay 0.1
+      tell i term application "System Events" to keystroke "D" using command down
+      delay 0.1
+      tell i term application "System Events" to keystroke "D" using command down
+      delay 0.1
+
+      tell i term application "System Events" to key code 33 using command down
+      delay 0.1
+      tell i term application "System Events" to key code 33 using command down
+      delay 0.1
+      tell i term application "System Events" to keystroke "d" using command down
+      delay 0.1
+      tell i term application "System Events" to key code 30 using command down
+      delay 0.1
+      tell i term application "System Events" to keystroke "d" using command down
+      delay 0.1
+      tell i term application "System Events" to key code 30 using command down
+      delay 0.1
+      tell i term application "System Events" to key code 30 using command down
+      delay 0.1
+      tell i term application "System Events" to key code 30 using command down
+
+      delay 0.5
+
+      tell first item of sessions
+        set name to "runnable-angular server"
+        set transparency to "0"
+        -- set background color to "blue"
+        write text "cd ~/Documents/workspace/runnable-angular"
+        write text "/bin/sleep 1"
+        write text "killall grunt"
+        write text "killall node"
+        write text "grunt"
+      end tell
+
+      tell second item of sessions
+        set name to "runnable-angular test server"
+        set transparency to "0"
+        -- set background color to "purple"
+        write text "cd ~/Documents/workspace/runnable-angular"
+        write text "/bin/sleep 1"
+        write text "killall grunt"
+        write text "grunt test-watch"
+      end tell
+
+      tell third item of sessions
+        set name to "runnable-angular gl"
+        set transparency to "0"
+        write text "/bin/sleep 1"
+        write text "cd ~/Documents/workspace/runnable-angular"
+        write text "gl"
+      end tell
+
+      tell fourth item of sessions
+        set name to "runnable-angular git status"
+        set transparency to "0"
+        write text "/bin/sleep 1"
+        write text "cd ~/Documents/workspace/runnable-angular"
+        write text "while true; do clear; git status; sleep 1; done"
+      end tell
+
+      tell fifth item of sessions
+        set name to "runnable-angular git diff"
+        set transparency to "0"
+        write text "/bin/sleep 1"
+        write text "cd ~/Documents/workspace/runnable-angular"
+        write text "git diff"
+      end tell
+
+      tell sixth item of sessions
+        set name to "runnable-angular"
+        set transparency to "0"
+        write text "/bin/sleep 1"
+        write text "cd ~/Documents/workspace/runnable-angular"
+      end tell
+
+      tell seventh item of sessions
+        set name to "runnable-angular vim"
+        set transparency to "0"
+        write text "/bin/sleep 1"
+        write text "cd ~/Documents/workspace/runnable-angular"
+        write text "vim"
+        write text ":OpenSession!"
+        write text ":NERDTree"
+      end tell
+
+      delay 0.5
+
+      return sessionList
+    end repeat
+  end tell
+end tell
