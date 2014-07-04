@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<root>
+
+  <item>
+    <name>CTRL+CMD+H to CTRL+CMD+LEFT_ARROW</name>
+    <identifier>private.ctrl_cmd_h_to_ctrl_cmd_left_arrow</identifier>
+    <autogen>
+      __KeyToKey__
+      KeyCode::H, ModifierFlag::OPTION_L,
+      KeyCode::CURSOR_LEFT, ModifierFlag::OPTION_L | ModifierFlag::COMMAND_L
+    </autogen>
+  </item>
+
+  <item>
+    <name>CTRL+CMD+J to CTRL+CMD+DOWN_ARROW</name>
+    <identifier>private.ctrl_cmd_j_to_ctrl_cmd_down_arrow</identifier>
+    <autogen>
+      __KeyToKey__
+      KeyCode::J, ModifierFlag::OPTION_L,
+      KeyCode::CURSOR_DOWN, ModifierFlag::OPTION_L | ModifierFlag::COMMAND_L
+    </autogen>
+  </item>
+
+  <item>
+    <name>CTRL+CMD+K to CTRL+CMD+UP_ARROW</name>
+    <identifier>private.ctrl_cmd_k_to_ctrl_cmd_up_arrow</identifier>
+    <autogen>
+      __KeyToKey__
+      KeyCode::K, ModifierFlag::OPTION_L,
+      KeyCode::CURSOR_UP, ModifierFlag::OPTION_L | ModifierFlag::COMMAND_L
+    </autogen>
+  </item>
+
+  <item>
+    <name>CTRL+CMD+L to CTRL+CMD+RIGHT_ARROW</name>
+    <identifier>private.ctrl_cmd_l_to_ctrl_cmd_right_arrow</identifier>
+    <autogen>
+      __KeyToKey__
+      KeyCode::L, ModifierFlag::OPTION_L,
+      KeyCode::CURSOR_RIGHT, ModifierFlag::OPTION_L | ModifierFlag::COMMAND_L
+    </autogen>
+  </item>
+</root>
+
